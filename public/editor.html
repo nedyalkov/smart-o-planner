@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--Note from Swa; you can simply open this HTML page in the browser and the tests will run.-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title>IntelliPlace editor </title>
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2013.2.716/styles/kendo.common.min.css"/>
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2013.2.716/styles/kendo.flat.min.css"/>
+    <link rel="stylesheet" href="/stylesheets/styles.css"/>
+    <script src="http://cdn.kendostatic.com/2013.2.716/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2013.2.716/js/kendo.all.min.js"></script>
+    <script src="/javascripts/kendo.diagram.math.js"></script>
+    <script src="/javascripts/kendo.diagram.svg.js"></script>
+    <script src="/javascripts/kendo.diagram.services.js"></script>
+    <script src="/javascripts/kendo.diagram.extensions.js"></script>
+    <script src="/javascripts/kendo.diagram.dom.js"></script>
+</head>
+<body>
+<div id="mainDiv">
+    <div id="toolbarDiv">
+        <input type="button" class="diagramCommandBtn" id="undoButton" title="Undo (CTRL+Z)" value="Undo"/>
+        <input type="button" class="diagramCommandBtn" id="redoButton" title="Redo (CTRL+Y)" value="Redo"/>
+        <input type="button" class="diagramCommandBtn" id="deleteButton" title="Delete (DEL)" value="Delete"/>
+        <input type="button" class="diagramCommandBtn" id="selectAllButton" title="Select All (CTRL+A)"
+               value="SelectAll"/>
+    </div>
+    <div id="splitter">
+        <div id="toolBoxDiv">
+            <!--<h2>Shapes</h2>-->
+            <div id="toolBox"></div>
+        </div>
+        <div id="canvasDiv">
+            <!--<h2>Diagram</h2>-->
+            <div id="canvas"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/x-kendo-tmpl" id="template">
+    <div class="shape">
+        <svg>
+            <path d="#=data#" fill="#=background#"/>
+        </svg>
+        <h3>#:name#</h3>
+    </div>
+</script>
+ <script src="/javascripts/editor.js"></script>
+</html>

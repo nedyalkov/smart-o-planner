@@ -1,0 +1,58 @@
+html, body, #mainDiv {
+    height: 100%;
+    overflow: hidden;
+}
+
+#canvasDiv {
+    float: left;
+}
+
+#canvas {
+    height: 100%;
+}
+
+input.diagramCommandBtn {
+    border: 1px gray solid;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+#toolBoxDiv {
+    float: left;
+}
+
+.shape {
+    float: left;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.shape:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.shape svg {
+    max-height: 50px;
+    max-width: 50px;
+}
+
+.shape h3 {
+    padding: 5px;
+    font-size: .9em;
+    overflow: hidden;
+    font-weight: normal;
+    max-width: 100px;
+    text-transform: uppercase;
+}
+
+h2 {
+    margin: 10px;
+}
+
+#splitter {
+    height: 90%;
+}
+
+#toolbarDiv {
+}

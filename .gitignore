@@ -1,0 +1,9 @@
+.idea/
+
+*.suo
+*.user
+*.pyc
+
+server/static/js-d
+public/javascripts
+node_modules
