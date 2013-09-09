@@ -6,6 +6,7 @@ var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
 var editor = require('./routes/editor');
+var workspace = require('./routes/workspace');
 var http = require('http');
 var path = require('path');
 
@@ -31,23 +32,9 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/editor', editor.editor);
+app.get('/workspaces', workspace.list);
+app.get('/workspace/:name', workspace.get);
 
-// http.createServer(app).listen(app.get('port'), function(){
-  // console.log('Express server listening on port ' + app.get('port'));
-// });
-
-
-var MongoClient = require('mongodb').MongoClient;
-var format = require('util').format;
-
-MongoClient.connect('mongodb://intelli-place:Asdf1234@ds041168.mongolab.com:41168/intelli-place', function(err, db) {
-	if(err) throw err;
-
-    var collection = db.collection('workspaces');
-      // Locate all the entries using find
-      collection.findOne({'_id': 'miromiroslavov'}, function(err, result) {
-        console.log(result);
-        // Let's close the db
-        db.close();
-      });
+http.createServer(app).listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
 });
