@@ -1,10 +1,9 @@
 html, body, #mainDiv {
     height: 100%;
-    overflow: hidden;
 }
 
 #canvasDiv {
-    float: left;
+
 }
 
 #canvas {
@@ -40,7 +39,6 @@ input.diagramCommandBtn {
 .shape h3 {
     padding: 5px;
     font-size: .9em;
-    overflow: hidden;
     font-weight: normal;
     max-width: 100px;
     text-transform: uppercase;
@@ -51,7 +49,7 @@ h2 {
 }
 
 #splitter {
-    height: 90%;
+    height: 80%;
 }
 
 #toolbarDiv {
