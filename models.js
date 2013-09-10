@@ -99,10 +99,18 @@ var room = office.rooms[0];
 
 console.log(room);
 
-var parser = require('./svgPathGrammer').pathParser;
+var ext = require('./geometryExtensions');
+var g = require('geometry');
+var p = new ext.Polygon([new g.Point(0, 0), new g.Point(0, 10), new g.Point(10, 10), new g.Point(10, 0)]);
+console.log(p);
+console.log(p.perimeter());
+console.log(p.area());
+console.log(g.Point.parse('10.5,20'));
+console.log(ext.Polygon.parse('0,0 10,0 10,10 0,10').area());
+// var parser = require('./svgPathGrammer').pathParser;
 
-var p = parser.parse('m0,0 L0,500 L500,500 L500,0z');
-console.dir(p);
+// var p = parser.parse('m0,0 L0,500 L500,500 L500,0z');
+// console.dir(p);
 
 
 
