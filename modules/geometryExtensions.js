@@ -50,7 +50,7 @@
 	
 	var g = require('geometry');
 	g.Point.parse = function(string) {
-		var parts = string.split(',');
+		var parts = string.replace(', ', ' ').replace(',', ' ').split(' ');
 		var x = parseFloat(parts[0]);
 		var y = parseFloat(parts[1]);
 		return new g.Point(x, y);

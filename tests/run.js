@@ -2,8 +2,8 @@ var testrunner = require("qunit");
 
 testrunner.setup({
     log: {
-        testing: true,
-        summary: true
+        tests: true,
+        errors: true,
     }
 });
 
@@ -13,7 +13,7 @@ var logger = function(report) {
 
 // one code and tests file
 testrunner.run(
-    {   
-        code: "/modules/geometryExtensions.js",
-        tests: "/tests/geometry.js" 
-    }, logger);
+    {
+        code: "./modules/geometryExtensions.js",
+        tests: "./tests/geometry.js" 
+    });
