@@ -1,2 +1,0 @@
-{"ts":1379017758264,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
-{"contributors":[],"silentsave":false,"ts":1379018075776,"patch":[[{"diffs":[[1,"test(\"parsePoint\", function() {\n    ok(true, \"Passing test.\")\n    });"]],"start1":0,"start2":0,"length1":0,"length2":69}]],"length":69,"saved":false}
