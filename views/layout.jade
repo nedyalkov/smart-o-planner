@@ -1,10 +1,23 @@
-doctype 5
 html
     head
         title=title
         link(rel='stylesheet', href='/stylesheets/style.css')
-        block head
+        block links
+            link(rel='stylesheet', href='bower_components/dist/css/bootstrap.css')
     body
-        header This is the header
-        block content
+        header Intelli Place
+          #userDiv
+            if user !== null
+              span Hi #{user.email}
+              a.login(href="/logout") Logout
+              a.login(href="/profile") Profile
+            else
+              span Hi
+              a.login(href="/login") Login
+              a.login(href="/signup") SignUp
+        div.container
+            block content
         footer 2013 All rights reserved.
+        script(src='http://cdn.kendostatic.com/2013.2.716/js/jquery.min.js')
+        script(src='bower_components/dist/js/bootstrap.min.js')
+        block scripts

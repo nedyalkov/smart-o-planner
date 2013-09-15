@@ -44,7 +44,7 @@ var createWorkspace = function(json) {
 }
 
 var workspace = {
-    "_id": "miromiroslavov",
+    "_id": "miroslav.miroslavov@gmail.com",
     "name": "Sofia Valley",
     "offices": [
         {

@@ -1,5 +1,5 @@
 
-var concentrationRule new Object();
+var concentrationRule = new Object();
 concentrationRule.rate = function(roomBoundary, roomArtifacts, arrangment) {
 	// http://mourner.github.io/simplify-js/
 	// machine learning - https://npmjs.org/package/mokolo

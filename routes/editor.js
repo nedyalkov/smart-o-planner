@@ -4,5 +4,9 @@
  */
 
 exports.editor = function(req, res){
-  res.render('editor', { title: 'Editor' });
+  if (req.isAuthenticated()) {
+    res.render("editor", { user: req.user, title: 'Intelli Place Editor' });
+  } else {
+    res.render("login");
+  }
 };
