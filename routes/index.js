@@ -1,10 +1,14 @@
 var User = require('../models/user');
 var Auth = require('../config/middlewares/authorization.js');
+var workspace = require('../models/workspace');
 
 module.exports = function (app, passport) {
   app.get("/", function (req, res) {
     if (req.isAuthenticated()) {
-      res.render("index", { user: req.user, title: 'Intelli Place' });
+      workspace.find(req.user.email, function (workspace) {
+        req.session.workspace = workspace;
+        res.render("index", { user: req.user, title: 'Intelli Place', workspace: workspace });
+      });
     } else {
       res.render("index", { user: null, title: 'Intelli Place' });
     }
@@ -14,11 +18,10 @@ module.exports = function (app, passport) {
     res.render("login");
   });
 
-  app.post("/login"
-    , passport.authenticate('local', {
-      successRedirect: "/",
-      failureRedirect: "/login"
-    })
+  app.post("/login", passport.authenticate('local', {
+    successRedirect: "/",
+    failureRedirect: "/login"
+  })
   );
 
   app.get("/signup", function (req, res) {

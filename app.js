@@ -1,6 +1,4 @@
 var express = require('express'),
-  //routes = require('./routes'),
-  user = require('./routes/user'),
   editor = require('./routes/editor'),
   workspace = require('./routes/workspace'),
   http = require('http'),
@@ -47,10 +45,10 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/users', user.list);
 app.get('/editor', editor.editor);
 app.get('/workspaces', workspace.list);
 app.get('/workspace/:name', workspace.get);
+app.get('/w/:name', workspace.workspace); // don't need that actually.
 
 app.use(function (err, req, res, next) {
   res.status(err.status || 500);
