@@ -24,6 +24,14 @@ test("Parse point with space and comma.", function() {
     deepEqual(parsed, new g.Point(1, 2))
 });
 
+test("Parse point with space and comma.", function() {
+	var g = require('geometry');
+	
+	var parsed = g.Point.parse("1, 2");
+	
+    deepEqual(parsed, new g.Point(1, 2))
+});
+
 QUnit.module("Polygon.parse");
 
 test("Single point.", function() {
