@@ -10,13 +10,13 @@
     "jade": "*",
     "less-middleware": "*",
     "mongodb": "*",
-    "geometry": "*",
-    "pegjs": "*",
     "nodemon": "*",
     "passport": "*",
     "passport-local": "*",
     "passport-facebook": "*",
     "mongoose": "~3.6.4",
     "connect": "*"
+	"geometry": "*",
+	"qunit": "*"
   }
 }
