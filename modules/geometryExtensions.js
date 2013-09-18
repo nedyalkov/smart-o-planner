@@ -27,24 +27,34 @@
 			}
 			return perimeter;
 		},
-	
-		area: function() {
+		
+		orientedArea: function() {
 			if (this.points.length < 3)
 				return 0;
 			
 			var area = 0;
-			for (var i = 0; i < this.points.length - 1; i++) {
+			for (var i = 0; i < this.points.length; i++) {
 				var first = this.points[i];
-				var second = this.points[i + 1];
+				if (i < this.points.length - 1) {
+					var second = this.points[i + 1];
+				} else {
+					var second = this.points[0];
+				}
 				area += (first.x + second.x) * (first.y - second.y);
 			}
 			return area / 2;
+		},
+		
+		area: function() {
+			return Math.abs(this.orientedArea());
 		}
 	});
 	
-	Polygon.parse = function(string) {
-		var pointStrings = string.split(' ');
-		var points = pointStrings.map(function(x) { return g.Point.parse(x); });
+	Polygon._pointRegEx = /(?:-?(?:0|[1-9]+\d*)(?:\.\d+)?(?:,|\s|;)*){2}/g;	
+	
+	Polygon.parse = function(string) {		
+		var pointMatches = string.match(Polygon._pointRegEx);
+		var points = pointMatches.map(function(x) { return g.Point.parse(x); });
 		return new Polygon(points);
 	}
 	
