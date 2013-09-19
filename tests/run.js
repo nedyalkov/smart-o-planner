@@ -12,8 +12,10 @@ var logger = function(report) {
 }
 
 // one code and tests file
-testrunner.run(
-    {
-        code: "./modules/geometryExtensions.js",
-        tests: "./tests/geometry.js" 
-    });
+testrunner.run([{
+	code: "./modules/geometryExtensions.js",
+	tests: "./tests/geometryTests.js" 
+},{
+	code: "./rules.js",
+	tests: "./tests/rulesTests.js" 
+}]);
