@@ -6,4 +6,5 @@
 *.pyc
 
 d.js
+public/javascripts
 node_modules/

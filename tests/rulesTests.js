@@ -40,3 +40,22 @@ test("Empty room with quadratic rating function and concentration 625 with min 2
 	var resultRate = rule.rate(roomBoundary, roomArtifacts, arrangementObjects);
 	deepEqual(resultRate, 0.75);
 });
+
+test("Room with artifacts (100) and default rating function and concentration 500 with min 400 and max 800 should return 0.5", function() {
+	var roomBoundary = Polygon.parse('m0,0 L0,50 L50,50 L50,0z'); // area = 50 * 50 = 2500
+	var roomArtifacts = [{ boundary: Polygon.parse('m0,0 L0,10 L10,10 L10,0z') }]; // area = 100
+	var arrangementObjects = [{}, {}, {}, {}]; // 600 each
+	var rule = new ConcentrationRule(400, 800);
+	var resultRate = rule.rate(roomBoundary, roomArtifacts, arrangementObjects);
+	deepEqual(resultRate, 0.5);
+});
+
+QUnit.module("SunlightRule");
+test("", function() {
+	var roomBoundary = Polygon.parse('m0,0 L0,50 L50,50 L50,0z'); // area = 50 * 50 = 2500
+	var roomArtifacts = [{ boundary: Polygon.parse('m0,0 L0,10 L10,10 L10,0z') }]; // area = 100
+	var arrangementObjects = [{}, {}, {}, {}]; // 600 each
+	var rule = new ConcentrationRule(400, 800);
+	var resultRate = rule.rate(roomBoundary, roomArtifacts, arrangementObjects);
+	deepEqual(resultRate, 0.5);
+});

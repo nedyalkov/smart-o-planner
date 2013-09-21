@@ -9,7 +9,7 @@
 	var quadraticFunction = function(x) { return 1 - (2 * x - 1) * (2 * x - 1); };
 	
 	var add = function(previousValue, currentValue, index, array) { return previousValue + currentValue; };	
-	var getArea = function(item) { return item.boundaries.area(); };
+	var getArea = function(item) { return item.boundary.area(); };
 	
 	var ConcentrationRule = Class.extend({
 		init: function(min, max) {
@@ -24,6 +24,19 @@
 			var concentrationRange = this.max - this.min;
 			var concentrationOffset = Math.min(concentrationRange, Math.max(0, concentration - this.min));
 			return this.ratingFunction(concentrationOffset / concentrationRange);
+        },
+		ratingFunction: identityFunction
+	});
+	
+	var SunlightRule = Class.extend({
+		init: function(minLight, maxLight) {
+			this.minLight = minLight;
+			this.maxLight = maxLight;
+		},
+		rate: function(roomBoundary, roomArtifacts, arrangmentObjects) {
+			var roomArea = roomBoundary.area();
+			var windows = roomArtifacts.filter(function (a) { return a.type == 'window'; });
+			//???
         },
 		ratingFunction: identityFunction
 	});
