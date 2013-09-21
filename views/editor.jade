@@ -7,6 +7,9 @@ block links
 
 block scripts
   script(src='http://cdn.kendostatic.com/2013.2.716/js/kendo.all.min.js')
+  script.
+      var room = !{room};
+  script(src='/javascripts/kendo.diagram.utils.js')
   script(src='/javascripts/kendo.diagram.math.js')
   script(src='/javascripts/kendo.diagram.svg.js')
   script(src='/javascripts/kendo.diagram.services.js')
@@ -17,10 +20,10 @@ block scripts
     <div class="shape"><svg><path d="#=data#" fill="#=background#"/></svg><h3>#:name#</h3></div>
 
 block content
-  if room
+  if roomName
     p
       | You're editing room:&nbsp'
-      b= room.name
+      b= roomName
       | ' in office:&nbsp'
       b= office
       | '.

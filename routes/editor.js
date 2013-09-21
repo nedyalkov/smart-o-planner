@@ -10,15 +10,13 @@ exports.editor = function (req, res) {
     var office = queryObject.office;
     var room = queryObject.room;
     var workspace = req.session.workspace;
-
     var o = workspace.offices.filter(function (o) {
-      console.log(o.name);
       return o.name == office;
     })[0];
     var r = o.rooms.filter(function (r) {
       return r.name == room;
     })[0];
-    res.render("editor", { user: req.user, title: 'Intelli Place Editor', office: office, room: r });
+    res.render("editor", { user: req.user, title: 'Intelli Place Editor', office: office, roomName: r.name, room: JSON.stringify(r) });
   } else {
     res.render("login");
   }
