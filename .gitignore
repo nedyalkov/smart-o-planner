@@ -5,5 +5,5 @@
 *.user
 *.pyc
 
-public/javascripts
+d.js
 node_modules/
