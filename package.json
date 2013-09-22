@@ -16,6 +16,7 @@
     "passport-facebook": "*",
     "mongoose": "~3.6.4",
     "connect": "*",
+	"connect-flash": "*",
 	"geometry": "*",
 	"qunit": "*"
   }
