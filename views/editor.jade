@@ -3,7 +3,7 @@ extends layout
 block links
   link(rel='stylesheet', href='http://cdn.kendostatic.com/2013.2.716/styles/kendo.common.min.css')
   link(rel='stylesheet', href='http://cdn.kendostatic.com/2013.2.716/styles/kendo.flat.min.css')
-  link(rel='stylesheet', href='/stylesheets/styles.css')
+  link(rel='stylesheet', href='/stylesheets/editor.css')
 
 block scripts
   script(src='http://cdn.kendostatic.com/2013.2.716/js/kendo.all.min.js')
@@ -28,8 +28,12 @@ block content
       input#redoButton.diagramCommandBtn(type='button', title='Redo (CTRL+Y)', value='Redo')
       input#deleteButton.diagramCommandBtn(type='button', title='Delete (DEL)', value='Delete')
       input#selectAllButton.diagramCommandBtn(type='button', title='Select All (CTRL+A)', value='SelectAll')
+      input#bringButton.diagramCommandBtn(type='button', title='Bring to Front', value='Bring to Front')
+      input#sendBackButton.diagramCommandBtn(type='button', title='Send to Back (CTRL+A)', value='Send to Back')
     #splitter
       #toolBoxDiv
         #toolBox
       #canvasDiv
+        #zoomPanel
+          input#slider
         #canvas
