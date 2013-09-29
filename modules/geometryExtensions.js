@@ -68,23 +68,23 @@
 	}
 
     var Trapezoid = Class.extend({
-        init: function(p1, p2, d, betha) {
+        init: function(p1, p2, d, beta) {
             this.p1 = p1;
             this.p2 = p2;
 
             var length = Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
-            var sinb = Math.sin(betha);
-            var cosb = Math.cos(betha);
+            var sinb = Math.sin(beta);
+            var cosb = Math.cos(beta);
             var sina = (p2.y - p1.y) / length;
             var cosa = (p2.x - p1.x) / length;
 
-            var p3x = p1.x - d * sina - d * sinb * cosa / cosb;
+			var p3x = p1.x - d * sina - d * sinb * cosa / cosb;
             var p3y = p1.y + d * cosa - d * sina * sinb / cosb;
 
             this.p3 = new Point(round(p3x), round(p3y));
 
-            var p4x = p2.x + d * sina + d * sinb * cosa / cosb;
-            var p4y = p2.y + d * cosa - d * sina * sinb / cosb;
+            var p4x = p2.x - d * sina + d * sinb * cosa / cosb;
+            var p4y = p2.y + d * cosa + d * sina * sinb / cosb;
 
             this.p4 = new Point(round(p4x), round(p4y));
         }
