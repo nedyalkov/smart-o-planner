@@ -1,5 +1,6 @@
 (function() {
     var Class = require('./oop').Class;
+    var Point = require('geometry').Point;
 
 	var Polygon = Class.extend({
 		init: function(points) {
@@ -54,17 +55,48 @@
 	
 	Polygon.parse = function(string) {		
 		var pointMatches = string.match(Polygon._pointRegEx);
-		var points = pointMatches.map(function(x) { return g.Point.parse(x); });
+		var points = pointMatches.map(function(x) { return Point.parse(x); });
 		return new Polygon(points);
 	}
 	
-	var g = require('geometry');
-	g.Point.parse = function(string) {
+	var settings = {
+		precision : 100,
+	};
+	
+	var round = function(x) {
+		return Math.round(x * settings.precision) / settings.precision;
+	}
+
+    var Trapezoid = Class.extend({
+        init: function(p1, p2, d, betha) {
+            this.p1 = p1;
+            this.p2 = p2;
+
+            var length = Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
+            var sinb = Math.sin(betha);
+            var cosb = Math.cos(betha);
+            var sina = (p2.y - p1.y) / length;
+            var cosa = (p2.x - p1.x) / length;
+
+            var p3x = p1.x - d * sina - d * sinb * cosa / cosb;
+            var p3y = p1.y + d * cosa - d * sina * sinb / cosb;
+
+            this.p3 = new Point(round(p3x), round(p3y));
+
+            var p4x = p2.x + d * sina + d * sinb * cosa / cosb;
+            var p4y = p2.y + d * cosa - d * sina * sinb / cosb;
+
+            this.p4 = new Point(round(p4x), round(p4y));
+        }
+    });
+
+	Point.parse = function(string) {
 		var parts = string.replace(', ', ' ').replace(',', ' ').split(' ');
 		var x = parseFloat(parts[0]);
 		var y = parseFloat(parts[1]);
-		return new g.Point(x, y);
+		return new Point(x, y);
 	}
 	
 	exports.Polygon = Polygon;
+    exports.Trapezoid = Trapezoid;
 })();

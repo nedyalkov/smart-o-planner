@@ -78,3 +78,12 @@ test("Calculate area - irregular hexagon.", function() {
 	var poly = Polygon.parse("(0,1) (5,-4) (8,-2) (10,4) (5,5) (2,4)");
 	equal(poly.area(), 55.5);
 });
+
+QUnit.module("Trapezoid.infer");
+test("", function() {
+    var Point = require('geometry').Point;
+    var trapezoid = new Trapezoid(new Point(10, 10), new Point(20, 10), 5, Math.PI/4);
+    deepEqual(trapezoid.p3, new Point(5, 15));
+    deepEqual(trapezoid.p4, new Point(25, 15));
+
+});

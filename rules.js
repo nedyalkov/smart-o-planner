@@ -32,6 +32,10 @@
 		init: function(minLight, maxLight) {
 			this.minLight = minLight;
 			this.maxLight = maxLight;
+            this.settings = {
+                distance: 10,
+                angle: 30
+            };
 		},
 		rate: function(roomBoundary, roomArtifacts, arrangmentObjects) {
 			var roomArea = roomBoundary.area();
